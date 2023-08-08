@@ -1,4 +1,3 @@
-console.log("hello world");
 
 function createElement(elementName, elementClass){
     const element = document.createElement(elementName);
