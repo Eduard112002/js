@@ -47,7 +47,6 @@ function unavailable(text){
 function append(whereEl, arr){
     whichEl = manyELement('div',5, 'shown');
     whichEl.forEach((el, index) => {
-        console.log(arr[index])
         if(arr[index]){
             el.textContent = arr[index].name
             whereEl.append(el)
