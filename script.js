@@ -1,4 +1,3 @@
-console.log("hello world");
 
 function createElement(elementName, elementClass){
     const element = document.createElement(elementName);
@@ -29,7 +28,7 @@ function dataSearch(arr){
     return obj
 }
 
-let whichEl;
+let whichEl = [];
 let but;
 
 function delet(el){
@@ -39,23 +38,19 @@ function delet(el){
 }
 
 function append(whereEl, arr){
-    let e = 0;
-
     whichEl = manyELement('div',5, 'shown');
-    whichEl.forEach(el => {
-
-        if(arr[e].name){
-            el.textContent = arr[e].name
+    whichEl.forEach((el, index) => {
+        
+        if(arr[index]){
+            el.textContent = arr[index].name
             whereEl.append(el)
-            kclick(el, arr[e])
-            e++
+            kclick(el, arr[index])
+
         }else{
             whereEl.append(whichEl[0])
             whichEl[0].textContent = 'there is no such repository'
         }
  })
-
-  e = 0
 }
 
 
@@ -89,24 +84,17 @@ input.oninput = debounce()
  function debounce() {
      let id;
      return function () {
-         clearTimeout(id, 1000);
-         if(input.value.trim().length) {
-             id = setTimeout(() => {
-                 getRequest(input.value)
-                 console.log(whichEl)
-                if(whichEl) {
-                    whichEl.forEach(el => {
-                        el.remove()
-                    })
-                }
-             }, 500);
-         }else{
              whichEl.forEach(el => {
                  el.remove()
-                 whichEl = undefined
              })
-         }
+         clearTimeout(id, 700);
+         if(input.value.trim().length) {
 
+             id = setTimeout(() => {
+                 getRequest(input.value)
+
+             }, 500);
+         }
      }
  }
 
@@ -128,9 +116,8 @@ async function getRequest(value){
 
     })
 
-    xhr.send('')
+    xhr.send()
 }
-
 
 
 
