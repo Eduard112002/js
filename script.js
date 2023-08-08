@@ -1,4 +1,4 @@
-console.log("hello world");
+
 
 function createElement(elementName, elementClass){
     const element = document.createElement(elementName);
@@ -90,14 +90,14 @@ input.oninput = debounce()
 
  function debounce() {
      let id;
-     return async function () {
+     return function () {
          clearTimeout(id, 700);
          if(input.value.trim().length) {
-             id = setTimeout(async() => {
+             id = setTimeout(() => {
                  whichEl.forEach(el => {
                      el.remove()
                  })
-                 await getRequest(input.value)
+                 getRequest(input.value)
              }, 500);
          }
          whichEl.forEach(el => {
