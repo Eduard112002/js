@@ -90,6 +90,9 @@ input.oninput = debounce()
 
  function debounce() {
      let id;
+     whichEl.forEach(el => {
+         el.remove()
+     })
      return async function () {
          whichEl.forEach(el => {
              el.remove()
@@ -97,9 +100,6 @@ input.oninput = debounce()
          clearTimeout(id, 700);
          if(input.value.trim().length) {
              id = setTimeout(() => {
-                 whichEl.forEach(el => {
-                     el.remove()
-                 })
                  getRequest(input.value)
              }, 500);
          }
