@@ -100,6 +100,9 @@ input.oninput = debounce()
          clearTimeout(id, 700);
          if(input.value.trim().length) {
              id = setTimeout(() => {
+                 whichEl.forEach(el => {
+                     el.remove()
+                 })
                  getRequest(input.value)
              }, 500);
          }
